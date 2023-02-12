@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='style.css', v=1)}}">
+</head>
+<body>
+<div class="menu-line">
+    <a href="/add_test" class="menu-text-first">ADD Test</a>
+    <a href="/pass_test" class="menu-text">Pass TEST</a>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+</html>

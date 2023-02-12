@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<div class="div-for-form">
+    <form action="pass_test" method="post">
+        {% for single_test in all_tests %}
+            {% for i in single_test %}
+                {{i}}
+            {% endfor %}
+        {% endfor %}
+    </form>
+</div>
+{% endblock %}

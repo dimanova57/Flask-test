@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="div-for-form">
+
+<form action="/add_test" method="post">
+    <h3>Add new test</h3>
+
+    <label for="question">Question</label>
+    <input type="text" id="question" name="question">
+
+    <label for="ans1">Answer 1</label>
+    <input type="text" id="ans1" name="ans1">
+
+    <label for="ans2">Answer 2</label>
+    <input type="text" id="ans2" name="ans2">
+
+    <label for="correct">Correct</label>
+    <input type="text" id="correct" name="correct">
+
+    <input type="submit" value="ADD">
+</form>
+    {% with msg = get_flashed_messages() %}
+    {% if msg[0] %}
+        {% if msg[0] ==  "SUCCESS"%}
+            <div style="background-color: #81eb85;">{{msg[0]}}</div>
+        {% else %}
+            <div style="background-color: #ed6168;">{{msg[0]}}</div>
+        {% endif %}
+    {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}
