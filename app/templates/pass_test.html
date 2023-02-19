@@ -4,12 +4,16 @@
 
 {% block content %}
 <div class="div-for-form">
-    <form action="pass_test" method="post">
-        {% for single_test in all_tests %}
-            {% for i in single_test %}
-                {{i}}
+    <form action="/pass_test_result" method="post">
+        {% for questions in all_tests %}
+            <label><h3>{{questions}}</h3></label>
+            {% for i in all_tests[questions] %}
+                <input type="radio" name="{{questions}}" id="{{i}}" value="{{i}}">
+                <label for="{{i}}">{{i}}</label><br>
+
             {% endfor %}
         {% endfor %}
+        <input type="submit" value="Submit">
     </form>
 </div>
 {% endblock %}

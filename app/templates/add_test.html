@@ -4,6 +4,11 @@
 <div class="div-for-form">
 
 <form action="/add_test" method="post">
+    <select name="selected">
+        {% for test in tablenames -%}
+        <option>{{test[0]}}</option>
+        {% endfor %}
+    </select>
     <h3>Add new test</h3>
 
     <label for="question">Question</label>
@@ -30,4 +35,27 @@
     {% endif %}
     {% endwith %}
 </div>
+<div class="div-for-form">
+    <form action="add_table" method="post">
+        <h3>Add new topic</h3>
+
+        <label for="tablename">Question</label>
+        <input type="text" name="tablename" id="tablename">
+
+        <input type="submit" value="ADD">
+    </form>
+</div>
+<div>
+    <form action="delete_table" method="post">
+        <select name="delete_selected">
+            {% for test in tablenames -%}
+                <option>{{test[0]}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Delete">
+    </form>
+</div>
+{% for i in tablenames %}
+<div><a href="/pass_test/{{i[0]}}">{{i[0]}}</a></div>
+{% endfor %}
 {% endblock %}
